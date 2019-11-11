@@ -7,20 +7,28 @@
 //
 
 import XCTest
+@testable import FrisqStopwatch
 
 class FrisqStopwatchTests: XCTestCase {
-
+    var app: XCUIApplication!
+    var sut: ViewController!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        super.setUp()
+        sut = ViewController()
+        sut.startTimer()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
     }
 
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        app.launch()
+        app.buttons["startButton"].tap()
+        
     }
 
     func testPerformanceExample() {
